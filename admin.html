@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masala Table | Owner Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Owner dashboard</h1>
+    <p>Masala Table orders</p>
+    <a class="owner-link" href="index.html">View customer site</a>
+  </header>
+
+  <!-- Login -->
+  <section id="loginView" class="login">
+    <form id="loginForm">
+      <h2>Owner login</h2>
+      <label>Username <input id="user" autocomplete="username" required></label>
+      <label>Password <input id="pass" type="password" autocomplete="current-password" required></label>
+      <p id="loginError" class="error" role="alert"></p>
+      <button class="primary" type="submit">Log in</button>
+      <p class="hint">Demo login: owner / admin123</p>
+    </form>
+  </section>
+
+  <!-- Dashboard -->
+  <main id="dashView" class="dash" hidden>
+    <div class="bar">
+      <div class="stats" id="stats"></div>
+      <button id="logoutBtn" class="link">Log out</button>
+    </div>
+
+    <div class="bar">
+      <div id="statusTabs" class="categories"></div>
+      <input id="orderSearch" type="search" placeholder="Search by name, phone or order ID" aria-label="Search orders">
+    </div>
+
+    <div id="orders" class="orders"></div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

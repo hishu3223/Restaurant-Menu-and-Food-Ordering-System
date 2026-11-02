@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masala Table | Menu & Online Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Masala Table</h1>
+    <p>Order from your table or for pickup. Fresh, made to order.</p>
+    <a class="owner-link" href="admin.html">Owner login</a>
+  </header>
+
+  <main class="layout">
+    <section class="menu-area" aria-label="Menu">
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search dishes" aria-label="Search dishes">
+        <label class="veg-toggle"><input id="vegOnly" type="checkbox"> Veg only</label>
+      </div>
+      <div id="categories" class="categories" role="tablist"></div>
+      <div id="menu" class="menu-grid"></div>
+    </section>
+
+    <aside class="cart" aria-label="Your order">
+      <h2>Your order</h2>
+      <div id="cartItems"></div>
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="subtotal">₹0</dd></div>
+        <div><dt>GST (5%)</dt><dd id="gst">₹0</dd></div>
+        <div class="grand"><dt>Total</dt><dd id="total">₹0</dd></div>
+      </dl>
+      <button id="checkoutBtn" class="primary" disabled>Place order</button>
+      <button id="clearBtn" class="link">Clear order</button>
+    </aside>
+  </main>
+
+  <dialog id="checkoutDialog">
+    <form id="checkoutForm" method="dialog">
+      <h2>Confirm your order</h2>
+      <label>Name <input id="custName" required minlength="2"></label>
+      <label>Phone <input id="custPhone" required pattern="[0-9]{10}" title="Enter a 10-digit number"></label>
+      <label>Order type
+        <select id="orderType">
+          <option>Dine-in</option>
+          <option>Pickup</option>
+        </select>
+      </label>
+      <label id="tableRow">Table number <input id="tableNo" type="number" min="1" max="30"></label>
+      <label>Special instructions <textarea id="notes" rows="2" placeholder="Less spicy, no onion..."></textarea></label>
+      <div class="row">
+        <button type="button" id="cancelBtn" class="link">Cancel</button>
+        <button type="submit" class="primary">Confirm order</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="doneDialog">
+    <h2>Order placed</h2>
+    <p id="doneText"></p>
+    <button id="doneBtn" class="primary">Done</button>
+  </dialog>
+
+  <script src="menu-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
